@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 
 import {Observable} from 'rxjs';
-import {Team} from '../teams/team';
 import {HttpClient} from '@angular/common/http';
+import {Team} from '../teams/team';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +16,10 @@ export class TeamsService {
 
   getTeams(): Observable<Team[]> {
     return this.http.get<Team[]>(this.teamsUrl);
+  }
+
+  addTeam(team: Team): Observable<Team> {
+    console.log(team + 'service')
+    return this.http.post<Team>(this.teamsUrl, team);
   }
 }

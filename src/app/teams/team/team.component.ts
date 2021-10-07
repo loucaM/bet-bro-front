@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Team} from '../team';
+import {Component, OnInit} from '@angular/core';
 import {TeamsService} from '../../services/teams.service';
+import {Team} from '../team';
 
 @Component({
   selector: 'app-team',
@@ -11,7 +11,6 @@ export class TeamComponent implements OnInit {
   teams: Team[] = [];
   displayedColumns: string[] = ['acronym', 'fullName'];
 
-
   constructor(private teamsService: TeamsService) { }
 
   ngOnInit(): void {
@@ -20,7 +19,6 @@ export class TeamComponent implements OnInit {
 
   getTeams(): void {
     this.teamsService.getTeams()
-      .subscribe(teams => (this.teams = teams));
+      .subscribe(teams => (this.teams = teams))
   }
-
 }
