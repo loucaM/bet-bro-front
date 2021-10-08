@@ -19,7 +19,7 @@ export class TeamsService {
   }
 
   addTeam(team: Team): Observable<Team> {
-    console.log(team + 'service')
+    console.log(team);
     return this.http.post<Team>(this.teamsUrl, team);
   }
 }

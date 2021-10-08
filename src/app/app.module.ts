@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppBarComponent } from './app-bar/app-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ChampionshipComponent } from './championship/championship.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AddTeamComponent,
     AppBarComponent,
     FooterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ChampionshipComponent
   ],
   imports: [
     BrowserModule,
