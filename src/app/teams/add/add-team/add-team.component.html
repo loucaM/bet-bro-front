@@ -1,55 +1,37 @@
 <div class="form-container">
-  <form [formGroup]="teamForm" (ngSubmit)="submit(teamForm)">
-    <mat-grid-list cols="8" rowHeight="100px">
-      <mat-grid-tile>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="form-field" appearance="outline">
-          <mat-label> Acronym
-          </mat-label>
-          <input matInput formControlName="acronym" required>
-          <mat-error *ngIf="teamForm.controls.acronym.touched && teamForm.controls.acronym.invalid">
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="form-field" appearance="outline">
-          <mat-label> Full Name
-          </mat-label>
-          <input matInput formControlName="fullName" required>
-          <mat-error *ngIf="teamForm.controls.fullName.touched && teamForm.controls.fullName.invalid">
-          </mat-error>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field color="primary" appearance="outline">
-          <mat-label>Date of the club creation</mat-label>
-          <input matInput formControlName="creationDate" [matDatepicker]="picker" required>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field appearance="legacy">
-          <mat-label>Select a league</mat-label>
-          <mat-select formControlName="championshipId">
-            <mat-option *ngFor="let c of championships" [value]="c.championshipId">
-              {{c.leagueName}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="1">
-      <button mat-raised-button color="primary" [disabled]="!teamForm.valid" type="submit">Add Team</button>
-    </mat-grid-list>
 
+  <form [formGroup]="teamForm" (ngSubmit)="submit(teamForm)">
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label> Acronym
+      </mat-label>
+      <input matInput formControlName="acronym" required>
+      <mat-error *ngIf="teamForm.controls.acronym.touched && teamForm.controls.acronym.invalid">
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label> Full Name
+      </mat-label>
+      <input matInput formControlName="fullName" required>
+      <mat-error *ngIf="teamForm.controls.fullName.touched && teamForm.controls.fullName.invalid">
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field color="primary" appearance="outline">
+      <mat-label>Date of the club creation</mat-label>
+      <input matInput formControlName="creationDate" [matDatepicker]="picker" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Select a league</mat-label>
+      <mat-select formControlName="championshipId" >
+        <mat-option *ngFor="let c of championships" [value]="c.championshipId">
+          {{c.leagueName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="!teamForm.valid" type="submit">Add Team</button>
   </form>
 </div>
 
