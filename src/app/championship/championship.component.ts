@@ -1,10 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ChampionshipService} from '../services/championship.service';
 import {Team} from '../teams/team';
-import {Champions, TeamChampionship} from './teamChampionship';
+import {Champions} from './teamChampionship';
 import {Observable} from 'rxjs';
+import {UntilDestroy} from '@ngneat/until-destroy';
 
 
+@UntilDestroy({checkProperties: true})
 @Component({
   selector: 'app-championship',
   templateUrl: './championship.component.html',
@@ -16,6 +18,10 @@ export class ChampionshipComponent implements OnInit {
   pl: Team[] = [];
   obs$: Observable<Champions> = new Observable<Champions>();
   displayedColumns: string[] = ['acronym', 'fullName'];
+
+  @Input()
+  selectedTeam = {} as Team;
+
 
   constructor(private championshipService: ChampionshipService) {
   }
@@ -30,7 +36,10 @@ export class ChampionshipComponent implements OnInit {
       this.pl = Object.values(res)[1];
       this.ligue1 = Object.values(res)[2];
     });
+  }
 
-
+  selectTeam(team: Team): void {
+    console.log(team) ;
+    this.selectedTeam = team;
   }
 }

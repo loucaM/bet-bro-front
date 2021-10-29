@@ -13,6 +13,7 @@ import {AppBarComponent} from './app-bar/app-bar.component';
 import {FooterComponent} from './footer/footer.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {ChampionshipComponent} from './championship/championship.component';
+import { TeamInfosComponent } from './championship/team-infos/team-infos.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ChampionshipComponent} from './championship/championship.component';
     AppBarComponent,
     FooterComponent,
     PageNotFoundComponent,
-    ChampionshipComponent
+    ChampionshipComponent,
+    TeamInfosComponent
   ],
   imports: [
     BrowserModule,

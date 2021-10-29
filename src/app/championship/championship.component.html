@@ -1,25 +1,91 @@
 <mat-tab-group>
   <mat-tab label="Ligue 1">
-    <table mat-table [dataSource]="ligue1" class="mat-elevation-z8">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+          <table mat-table [dataSource]="ligue1" class="mat-elevation-z8">
 
-      <ng-container matColumnDef="acronym">
-        <th mat-header-cell *matHeaderCellDef> Nom </th>
-        <td mat-cell *matCellDef="let element"> {{element.acronym}} </td>
-      </ng-container>
+            <ng-container matColumnDef="acronym">
+              <th mat-header-cell *matHeaderCellDef> Nom</th>
+              <td mat-cell *matCellDef="let element"> {{element.acronym}} </td>
+            </ng-container>
 
-      <ng-container matColumnDef="fullName">
-        <th mat-header-cell *matHeaderCellDef> Nom Complet </th>
-        <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
-      </ng-container>
+            <ng-container matColumnDef="fullName">
+              <th mat-header-cell *matHeaderCellDef> Nom Complet</th>
+              <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+            </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
 
   </mat-tab>
-  <mat-tab label="Liga"> Liga</mat-tab>
-  <mat-tab label="Premier League"> Premier League</mat-tab>
+  <mat-tab label="Liga">
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+          <table mat-table [dataSource]="liga" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="acronym">
+              <th mat-header-cell *matHeaderCellDef> Nom</th>
+              <td mat-cell *matCellDef="let element"> {{element.acronym}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fullName">
+              <th mat-header-cell *matHeaderCellDef> Nom Complet</th>
+              <td mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+
+  </mat-tab>
+  <mat-tab label="Premier League">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+          <table mat-table [dataSource]="pl" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="acronym" >
+              <th mat-header-cell *matHeaderCellDef> Nom</th>
+              <td mat-cell class="cursor-change" *matCellDef="let element" (click)="selectTeam(element)"> {{element.acronym}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fullName" >
+              <th mat-header-cell *matHeaderCellDef> Nom Complet</th>
+              <td mat-cell   *matCellDef="let element"> {{element.fullName}}  </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+    </div>
+  </mat-tab>
 </mat-tab-group>
+
+<app-team-infos [selectedTeam]="selectedTeam"></app-team-infos>
 
 
 <p> {{ obs$ | async | json}} </p>

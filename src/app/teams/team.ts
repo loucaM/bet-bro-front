@@ -4,6 +4,7 @@ export class Team {
   fullName!: string;
   creationDate!: Date;
   championshipId!: number;
+  logoPath!: string;
 
   public constructor(init?: Partial<Team>) {
   Object.assign(this, init);
