@@ -19,6 +19,7 @@ export class ChampionshipComponent implements OnInit {
   obs$: Observable<Champions> = new Observable<Champions>();
   displayedColumns: string[] = ['acronym', 'fullName'];
 
+
   @Input()
   selectedTeam = {} as Team;
 
